@@ -11,7 +11,6 @@ WHERE users.id = $1;
 
 // Route /home/viewall
 module.exports = (db) => {
-  console.log("viewall path test")
   router.get("/", (req, res) => {
     db.query(queryString, [req.session.user_id])
     .then(result => {
@@ -21,7 +20,6 @@ module.exports = (db) => {
       res.redirect("/")
     })
     .catch(err => {
-      console.error(err)
       res
       .status(500)
       .json({ error: err.message });
