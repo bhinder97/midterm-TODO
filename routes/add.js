@@ -11,7 +11,7 @@ RETURNING *;
 module.exports = (db) => {
   router.post("/", (req, res) => {
     console.log(req.body)
-    db.query(queryString, [1, req.body.task, req.body.category])
+    db.query(queryString, [req.session.user_id, req.body.task, req.body.category])
       .then(result => {
         return res.json(result.rows);
       })

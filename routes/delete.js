@@ -10,7 +10,7 @@ RETURNING *;
 //Route "/home/delete"
 module.exports = (db) => {
   router.post("/", (req, res) => {
-    db.query(queryString, [req.session.delete])
+    db.query(queryString, [req.body.delete])
     .then(result => {
       return res.json(result.rows);
     })

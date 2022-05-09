@@ -13,7 +13,7 @@ WHERE users.id = $1;
 module.exports = (db) => {
   console.log("viewall path test")
   router.get("/", (req, res) => {
-    db.query(queryString, [1])
+    db.query(queryString, [req.session.user_id])
     .then(result => {
       return res.json(result.rows);
     })
