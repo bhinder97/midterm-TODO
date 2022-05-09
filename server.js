@@ -33,23 +33,25 @@ app.use(
 
 app.use(express.static("public"));
 
+app.use(express.json())
+
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const addRoute = require("./routes/add");
-const viewRoute = require("./routes/viewAll")
-const updateRoute = require("./routes/updatetask")
-const deleteroute = require(".routes/delete")
+const viewRoute = require("./routes/viewAll");
+const updateRoute = require("./routes/updatetask");
+const deleteroute = require("./routes/delete");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/home/add", addRoute(db));
-app.use("/home/viewall", viewRoute(db))
-app.use("/home/updatetask", updateRoute(db))
-app.use("/home/delete", deleteroute(db))
+app.use("/home/viewall", viewRoute(db));
+app.use("/home/updatetask", updateRoute(db));
+app.use("/home/delete", deleteroute(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page

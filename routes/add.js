@@ -10,14 +10,16 @@ RETURNING *;
 // Route /home/add
 module.exports = (db) => {
   router.post("/", (req, res) => {
-    db.query(queryString, [req.session.users_id, req.body.task, req.body.category])
+    console.log(req.body)
+    db.query(queryString, [1, req.body.task, req.body.category])
       .then(result => {
-        return result.rows;
+        return res.json(result.rows);
       })
       .then(() => {
         res.redirect("/")
       })
       .catch(err => {
+        console.log(err)
         res
           .status(500)
           .json({ error: err.message });

@@ -12,7 +12,7 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     db.query(queryString, [req.session.delete])
     .then(result => {
-      return result.rows;
+      return res.json(result.rows);
     })
     .then(() => {
       res.redirect("/")

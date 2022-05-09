@@ -12,7 +12,7 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     db.query(queryString, [req.body.update])
     .then(result => {
-      return result.rows;
+      return res.json(result.rows);
     })
     .then(() => {
       res.redirect("/")
