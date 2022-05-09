@@ -7,9 +7,9 @@ VALUES
 ($1, $2, $3)
 RETURNING *;
 `
-
+// Route /home/add
 module.exports = (db) => {
-  router.post("/add", (req, res) => {
+  router.post("/", (req, res) => {
     db.query(queryString, [req.session.users_id, req.body.task, req.body.category])
       .then(result => {
         return result.rows;

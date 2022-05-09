@@ -6,9 +6,10 @@ UPDATE tasks
 SET tasks.task = $1
 RETURNING *;
 `
-
+//`SELECT * FROM quizzes WHERE quiz_id=${request};`
+//Route "/home/updatetask"
 module.exports = (db) => {
-  router.post("/update", (req, res) => {
+  router.post("/", (req, res) => {
     db.query(queryString, [req.body.update])
     .then(result => {
       return result.rows;

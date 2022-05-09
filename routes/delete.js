@@ -7,8 +7,9 @@ WHERE tasks.task = '$1'
 RETURNING *;
 `
 
+//Route "/home/delete"
 module.exports = (db) => {
-  router.post("/delete", (req, res) => {
+  router.post("/", (req, res) => {
     db.query(queryString, [req.session.delete])
     .then(result => {
       return result.rows;

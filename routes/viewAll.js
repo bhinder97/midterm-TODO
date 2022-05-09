@@ -9,8 +9,10 @@ WHERE users.id = '$1'
 RETURNING *;
 `
 
+
+// Route /home/viewall
 module.exports = (db) => {
-  router.post("/viewall", (req, res) => {
+  router.post("/", (req, res) => {
     db.query(queryString, [req.session.user_id])
     .then(result => {
       return result.rows;
