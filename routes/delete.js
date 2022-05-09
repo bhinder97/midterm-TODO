@@ -2,16 +2,14 @@ const express = require('express');
 const router  = express.Router();
 
 let queryString = `
-SELECT task
-FROM tasks
-JOIN users ON users.id=users_id
-WHERE users.id = '$1'
+DELETE FROM tasks
+WHERE tasks.task = '$1'
 RETURNING *;
 `
 
 module.exports = (db) => {
-  router.post("/viewall", (req, res) => {
-    db.query(queryString, [req.session.user_id])
+  router.post("/delete", (req, res) => {
+    db.query(queryString, [req.session.delete])
     .then(result => {
       return result.rows;
     })
