@@ -14,6 +14,9 @@ module.exports = (db) => {
     .then(result => {
       return result.rows;
     })
+    .then(() => {
+      res.redirect("/")
+    })
     .catch(err => {
       res
       .status(500)
