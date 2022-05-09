@@ -1,18 +1,5 @@
 const express = require('express');
-const app = express();
 const router  = express.Router();
-const cookieSession = require('cookie-session');
-app.use(cookieSession({
-  name: 'session',
-  keys: ['hello']
-}));
-
-
-module.exports = () => {
-  router.get("/register", (req, res) => {
-    res.render("register");
-  });
-};
 
 let queryString = `
 INSERT INTO users (name, email, password)
@@ -22,7 +9,10 @@ RETURNING *;
 `
 
 module.exports = (db) => {
-  router.post("/register", (req, res) => {
+  router.get("/", (req, res) => {
+    res.render("register");
+  });
+  router.post("/", (req, res) => {
     const userEmail = req.body.email;
     const userName = req.body.name;
     const userPass = req.body.password;
