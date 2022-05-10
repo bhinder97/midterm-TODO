@@ -5,7 +5,9 @@ let queryString = `
 SELECT task
 FROM tasks
 JOIN users ON users.id=users_id
-WHERE users.id = $1;
+WHERE users.id = $1
+GROUP BY task
+ORDER BY task;
 `
 
 

@@ -8,8 +8,8 @@ WHERE tasks.task = $1;
 
 //Route "/home/delete"
 module.exports = (db) => {
-  router.post("/", (req, res) => {
-    db.query(queryString, [req.body])
+  router.post("/:delete", (req, res) => {
+    db.query(queryString, [req.params])
     .then(result => {
       console.log(result.rows)
       return res.status(302).redirect("/")
