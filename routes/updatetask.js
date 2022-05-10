@@ -3,19 +3,16 @@ const router  = express.Router();
 
 let queryString = `
 UPDATE tasks
-SET tasks.task = $1
+SET $1 = $2
 RETURNING *;
 `
 //`SELECT * FROM quizzes WHERE quiz_id=${request};`
 //Route "/home/updatetask"
 module.exports = (db) => {
-  router.post("/", (req, res) => {
-    db.query(queryString, [req.body.update])
+  router.post("/:task", (req, res) => {
+    db.query(queryString, [req.params, req.body.update])
     .then(result => {
-      return res.json(result.rows);
-    })
-    .then(() => {
-      res.redirect("/")
+      return res.redirect("/")
     })
     .catch(err => {
       res

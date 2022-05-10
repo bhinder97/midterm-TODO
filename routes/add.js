@@ -1,5 +1,15 @@
 const express = require('express');
 const router  = express.Router();
+const request = require('request');
+
+const getCategory = function(ip, callback) {
+  request(`https://freegeoip.app/json/${ip}`, (error, response, body) => {
+    if (error) {
+      callback(error, null);
+      return;
+    }
+  })
+}
 
 let queryString = `
 INSERT INTO tasks (users_id , task , category)
