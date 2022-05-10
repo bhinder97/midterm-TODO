@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Register Page</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+</head>
+
+<body>
+  <container class="parent">
+   <nav>
+      <span class="nav-span">
+          <div class="tittle">ToDo</div>
+          <br>
+        <section class="Nav-Buttons">
+          <button class="login-button">Login</button>
+          <button class="register-button">Register</button>
+        </section>
+      </span>
+    </nav>
+      <form method="POST" action="/register">
+        <label>
+          name
+          <input type="name" name="name" />
+        </label>
+        <label>
+          email
+          <input type="email" name="email" />
+        </label>
+        <label>
+          password
+          <input type="password" name="password" />
+        </label>
+        <button type="submit">Register</button>
+      </form>
+  </container>
+</body>
