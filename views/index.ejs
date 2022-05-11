@@ -8,13 +8,177 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/list-main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/parent.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/dbd661c41c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <h1>Have fun! 🥔</h1>
+  <container class="parent">
+   <nav>
+      <span class="nav-span">
+          <div class="tittle">ToDo</div>
+          <br>
+        <section class="nav-buttons">
+          <form method="POST" action="/login" class="login">
+            <label>
+              email
+              <input class="email-input" type="email" name="Email" />
+            </label>
+            <label>
+              password
+              <input class="password-input" type="password" name="password" />
+            </label>
+            <button type="submit" class="login-button">Login</button>
+          </form>
+          <button class="register-button">Register</button>
+        </section>
+      </span>
+    </nav>
+
+    <header class="search-main">
+      <textarea class="search">New ToDo?</textarea>
+      <textarea class="search">Which ToDo?</textarea>
+    </header>
+
+    <container class="list-main">
+      <section class="list">
+          <h1 class="catagory-name">ToDo's</h1>
+        <section class="list-actual">
+          <span class="task">Task</span>
+          <span class="category">Category</span>
+          <button class="edit-button">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </section>
+        <section class="list-actual">
+          <span class="task">Task</span>
+          <span class="category">Category</span>
+          <button class="edit-button">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </section>
+        <section class="list-actual">
+          <span class="task">Task</span>
+          <span class="category">Category</span>
+          <button class="edit-button">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </section>
+        <section class="list-actual">
+          <span class="task">Task</span>
+          <span class="category">Category</span>
+          <button class="edit-button">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </section>
+        <section class="list-actual">
+          <span class="task">Task</span>
+          <span class="category">Category</span>
+          <button class="edit-button">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </section>
+        <section class="list-actual">
+          <span class="task">Task</span>
+          <span class="category">Category</span>
+          <button class="edit-button">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </section>
+        <section class="list-actual">
+          <span class="task">Task</span>
+          <span class="category">Category</span>
+          <button class="edit-button">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </section>
+        <section class="list-actual">
+          <span class="task">Task</span>
+          <span class="category">Category</span>
+          <button class="edit-button">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </section>
+        <section class="list-actual">
+          <span class="task">Task</span>
+          <span class="category">Category</span>
+          <button class="edit-button">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </section>
+        <section class="list-actual">
+          <span class="task">Task</span>
+          <span class="category">Category</span>
+          <button class="edit-button">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </section>
+        <section class="list-actual">
+          <span class="task">Task</span>
+          <span class="category">Category</span>
+          <button class="edit-button">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </section>
+        <section class="list-actual">
+          <span class="task">Task</span>
+          <span class="category">Category</span>
+          <button class="edit-button">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="delete-button">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </section>
+      </section>
+    </container>
+  </container>
 </body>
 
 </html>
