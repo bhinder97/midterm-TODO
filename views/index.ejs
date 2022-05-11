@@ -43,7 +43,9 @@
             </label>
             <button type="submit" class="login-button">Login</button>
           </form>
-          <button class="register-button">Register</button>
+          <form method="GET" action="/register">
+            <button class="register-button">Register</button>
+          </form>
         </section>
       </span>
     </nav>
@@ -59,9 +61,11 @@
         <section class="list-actual">
           <span class="task">Task</span>
           <span class="category">Category</span>
-          <button class="edit-button">
-            <i class="fa-solid fa-pen-to-square"></i>
-          </button>
+          <!-- <form method="GET" action="/edit" class="edit"></form> -->
+            <button class="edit-button">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+          <!-- </form> -->
           <button class="delete-button">
             <i class="fa-solid fa-trash"></i>
           </button>
