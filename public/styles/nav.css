@@ -46,11 +46,13 @@ nav {
   background-color: transparent;
   /* border: 3.5px solid #64ed85; */
     border-color: transparent;
+  border-bottom: 3.5px solid #00ff3c;
 }
 
 .password-input {
   background-color: transparent;
   border-color: transparent;
+  border-bottom: 3.5px solid #00ff3c;
 }
 
 

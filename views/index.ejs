@@ -35,7 +35,7 @@
           <form method="POST" action="/login" class="login">
             <label>
               email
-              <input class="email-input" type="email" name="Email" />
+              <input class="email-input" type="email" name="email" />
             </label>
             <label>
               password
@@ -61,13 +61,13 @@
         <section class="list-actual">
           <span class="task">Task</span>
           <span class="category">Category</span>
-          <form method="POST" action="/edit" class="edit">
-            <button class="edit-button">
+          <form method="GET" action="/edit" class="edit">
+            <button class="edit-button" type="submit">
               <i class="fa-solid fa-pen-to-square"></i>
             </button>
           </form>
           <form method="POST" action="/delete" class="delete">
-            <button class="delete-button">
+            <button class="delete-button" type="submit">
               <i class="fa-solid fa-trash"></i>
             </button>
           </form>
