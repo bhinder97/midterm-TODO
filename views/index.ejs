@@ -31,8 +31,18 @@
       <span class="nav-span">
           <div class="tittle">ToDo</div>
           <br>
-        <section class="Nav-Buttons">
-          <button class="login-button">Login</button>
+        <section class="nav-buttons">
+          <form method="POST" action="/login" class="login">
+            <label>
+              email
+              <input class="email-input" type="email" name="Email" />
+            </label>
+            <label>
+              password
+              <input class="password-input" type="password" name="password" />
+            </label>
+            <button type="submit" class="login-button">Login</button>
+          </form>
           <button class="register-button">Register</button>
         </section>
       </span>
