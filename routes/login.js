@@ -15,13 +15,25 @@ module.exports = (db) => {
     const userPass = req.body.password;
     db.query(queryString, [userEmail])
     .then(result => {
-      if (result !== "" && userPass === result.rows[0].password) {
-        console.log("TEST :", result.rows[0].id);
-        req.session.user_id = result.rows[0].id;
-        res.redirect("/");
-      } else {
-        res.redirect("/login");
-      };
+      // if (result !== "" && userPass === result.rows[0].password) {
+      //   console.log("TEST :", result.rows[0].id);
+        // req.session.user_id = result.rows[0].id;
+      //   res.redirect("/");
+      // } else {
+      //   res.redirect("/login");
+      // };
+      if (result.rows.length.password < 1) {
+        return res.send("incorrect info")
+      }
+      const userObject = result.rows[0]
+      if (userObject.password !== userPass){
+        return res.send("incorrect info")
+      }
+      req.session.user_id = result.rows[0].id;
+      const templateVars = {
+        user: userObject
+      }
+      res.render('index.ejs', templateVars)
     });
   });
   return router;
