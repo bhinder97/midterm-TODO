@@ -28,12 +28,6 @@
       <span class="nav-span">
           <div class="tittle">ToDo</div>
           <br>
-<<<<<<< HEAD
-        <section class="Nav-Buttons">
-          <a href="#">Login</a>
-          <a href="#">Register</a>
-        </section>
-=======
           <section class="nav-buttons">
           <% if(!user) {%>
           <form method="POST" action="/login" class="login">
@@ -54,13 +48,24 @@
             <p>Welcome!</p>
             <% } %>
           </section>
->>>>>>> 0a39bc02c078faef19008cd5a011266966f36ca7
       </span>
     </nav>
 
     <header class="search-main">
-      <textarea class="search">New ToDo?</textarea>
-      <textarea class="search">Which ToDo?</textarea>
+      <!-- <textarea class="search">New ToDo?</textarea>
+      <textarea class="search">Which ToDo?</textarea> -->
+      <form class="search-task" method="GET" action="/">
+        <label class="search-label">
+          <input class="search-input" type="search" name="search" />
+          <button class="search-button" type="submit">Search</button>
+        </label>
+      </form>
+      <form class="add-task" method="POST" action="/add">
+        <label class="add-label">
+          <input class="add-input" type="add" name="add" />
+          <button class="add-button" type="submit">Create</button>
+        </label>
+      </form>
     </header>
 
     <container class="list-main">
@@ -107,6 +112,7 @@
       </section>
 =======
         <h1 class="catagory-name">ToDo's</h1>
+        <% if(user) {%>
         <table class="table">
           <thead>
             <tr>
@@ -140,7 +146,13 @@
               <% } %>
           </tbody>
         </table>
+<<<<<<< HEAD
 >>>>>>> 0a39bc02c078faef19008cd5a011266966f36ca7
+=======
+        <%} else {%>
+          <p>Please login!</p>
+          <% } %>
+>>>>>>> 035c929d832449b390c5864dd5f145998c9feb42
     </container>
   </container>
 </body>
