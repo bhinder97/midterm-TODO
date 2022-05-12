@@ -14,7 +14,7 @@ module.exports = (db) => {
     res.render("edit")
   })
   router.post("/:id", (req, res) => {
-    db.query(queryString, [req.params, req.body.newTask, req.body.newCategory])
+    db.query(queryString, [req.params.id, req.body.newTask, req.body.newCategory])
     .then(result => {
       console.log("TEST:", res.body)
       return res.redirect("/")
