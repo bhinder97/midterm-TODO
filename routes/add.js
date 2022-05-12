@@ -28,36 +28,38 @@ RETURNING *;
 // Route /home/add
 module.exports = (db) => {
   router.post("/", (req, res) => {
+    console.log("TEST@!#@#!:", req.session.users_id);
+    console.log("TEST ADD@!#@#!:", req.body.add);
     let category = "Uncategorized"
-    request(`https://www.googleapis.com/books/v1/volumes?q=${req.body.task}`, (error, response, body) => {
+    request(`https://www.googleapis.com/books/v1/volumes?q=${req.body.add}`, (error, response, body) => {
         let data = JSON.parse(body);
         if (data.items[0].volumeInfo.readingModes.text === true) {
-          // console.log("Test 1:", data.items[0].volumeInfo)
+          console.log("Test 1:", data.items[0].volumeInfo.readingModes.text)
           category = "Books (To read)";
         } else {
-          request(`https://www.themealdb.com/api/json/v1/1/search.php?s=${req.body.task}`, (error, response, body) => {
+          request(`http://www.omdbapi.com/?t=${req.body.add}&apikey=23375eca`, (error, response, body) => {
             let data = JSON.parse(body);
-            if (data.meals !== null) {
-              // console.log("Test 2:", data.meals)
-              category = "Foods (To eat)";
+            if (data.Year !== undefined) {
+              console.log("Test 2:", data.Year)
+              category = "Film / Series (To watch)";
             } else {
-              request(`http://www.omdbapi.com/?t=${req.body.task}&apikey=23375eca`, (error, response, body) => {
+              request(`https://www.themealdb.com/api/json/v1/1/search.php?s=${req.body.add}`, (error, response, body) => {
                 let data = JSON.parse(body);
-                if (data.Year !== null) {
-                  // console.log("Test 3:", data.Year)
-                  category = "Film / Series (To watch)";
+                if (data.meals !== null) {
+                  console.log("Test 3:", data.meals)
+                  category = "Foods (To eat)";
                 } else {
                   category = "Products (To buy)";
-                }
-                db.query(queryString, [req.body.users_id, req.body.task, category])
+                  db.query(queryString, [1, req.body.add, category])
                   .then((result) => {
-                    // console.log(result);
-                    res.redirect("/");
+                    // console.log("TEST@!#@#!:", req.body);
+                    return res.redirect("/");
                   })
                   .catch((err) => {
                     console.log(err);
                     res.status(500).json({ error: err.message });
                   });
+                }
               });
             }
           });

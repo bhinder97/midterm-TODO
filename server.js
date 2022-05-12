@@ -88,7 +88,7 @@ app.get("/", (req, res) => {
       // console.log("TEST!!:", result[0].rows)
       templateVars.allTasks = result[0].rows;
       templateVars.user = result[1].rows[0]
-      console.log("TEST!!:", templateVars)
+      // console.log("TEST!!:", templateVars)
       return res.render("index", templateVars);
     })
   } else {
