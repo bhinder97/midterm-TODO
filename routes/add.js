@@ -25,45 +25,71 @@ VALUES
 RETURNING *;
 `;
 
+const runDB = function (db, queryString, req, res, category) {
+  db.query(queryString, [req.session.user_id, req.body.add, category])
+    .then((result) => {
+      return res.redirect("/");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: err.message });
+    });
+};
+
 // Route /home/add
 module.exports = (db) => {
   router.post("/", (req, res) => {
-    console.log("TEST@!#@#!:", req.session.users_id);
-    console.log("TEST ADD@!#@#!:", req.body.add);
-    let category = "Uncategorized"
-    request(`https://www.googleapis.com/books/v1/volumes?q=${req.body.add}`, (error, response, body) => {
+    // console.log("TEST@!#@#!:", req.session.user_id);
+    // console.log("TEST ADD@!#@#!:", req.body.add);
+    let category = "Uncategorized";
+    request(
+      `https://api.spoonacular.com/food/ingredients/search?apiKey=e4890b39a51e4455ad4dc16f73000788&query=${req.body.add}`,
+      (error, response, body) => {
         let data = JSON.parse(body);
-        if (data.items[0].volumeInfo.readingModes.text === true) {
-          console.log("Test 1:", data.items[0].volumeInfo.readingModes.text)
-          category = "Books (To read)";
+        if (data.totalResults !== 0) {
+          // console.log("Test 3:", data.meals);
+          category = "Foods (To eat)";
+          runDB(db, queryString, req, res, category);
         } else {
-          request(`http://www.omdbapi.com/?t=${req.body.add}&apikey=23375eca`, (error, response, body) => {
-            let data = JSON.parse(body);
-            if (data.Year !== undefined) {
-              console.log("Test 2:", data.Year)
-              category = "Film / Series (To watch)";
-            } else {
-              request(`https://www.themealdb.com/api/json/v1/1/search.php?s=${req.body.add}`, (error, response, body) => {
-                let data = JSON.parse(body);
-                if (data.meals !== null) {
-                  console.log("Test 3:", data.meals)
-                  category = "Foods (To eat)";
-                } else {
-                  category = "Products (To buy)";
-                  db.query(queryString, [1, req.body.add, category])
-                  .then((result) => {
-                    // console.log("TEST@!#@#!:", req.body);
-                    return res.redirect("/");
-                  })
-                  .catch((err) => {
-                    console.log(err);
-                    res.status(500).json({ error: err.message });
-                  });
-                }
-              });
+          request(
+            `https://www.googleapis.com/books/v1/volumes?q=${req.body.add}`,
+            (error, response, body) => {
+              let data = JSON.parse(body);
+              if (data.items[0].volumeInfo.readingModes.text === true) {
+                // console.log(
+                //   "Test 1:",
+                //   data.items[0].volumeInfo.readingModes.text
+                // );
+                category = "Books (To read)";
+                runDB(db, queryString, req, res, category);
+              } else {
+                request(
+                  `http://www.omdbapi.com/?t=${req.body.add}&apikey=23375eca`,
+                  (error, response, body) => {
+                    let data = JSON.parse(body);
+                    if (data.Year !== undefined) {
+                      // console.log("Test 2:", data.Year);
+                      category = "Film / Series (To watch)";
+                      runDB(db, queryString, req, res, category);
+                    } else {
+                      category = "Products (To buy)";
+                      runDB(db, queryString, req, res, category);
+                    }
+                  }
+                );
+              }
             }
-          });
+          );
         }
+        //   db.query(queryString, [req.session.users_id, req.body.add, category])
+        //   .then((result) => {
+        //     // console.log("TEST@!#@#!:", req.body);
+        //     return res.redirect("/");
+        //   })
+        //   .catch((err) => {
+        //     console.log(err);
+        //     res.status(500).json({ error: err.message });
+        // });
       }
     );
   });

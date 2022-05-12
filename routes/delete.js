@@ -9,7 +9,7 @@ WHERE tasks.id = $1;
 //Route "/home/delete"
 module.exports = (db) => {
   router.post("/:id", (req, res) => {
-    db.query(queryString, [req.params])
+    db.query(queryString, [req.params.id])
     .then(result => {
       console.log(result.rows)
       return res.status(302).redirect("/")
