@@ -31,7 +31,8 @@
       <span class="nav-span">
           <div class="tittle">ToDo</div>
           <br>
-        <section class="nav-buttons">
+          <section class="nav-buttons">
+          <% if(!user) {%>
           <form method="POST" action="/login" class="login">
             <label>
               email
@@ -46,7 +47,10 @@
           <form method="GET" action="/register">
             <button class="register-button">Register</button>
           </form>
-        </section>
+          <%} else {%>
+            <p>Welcome!</p>
+            <% } %>
+          </section>
       </span>
     </nav>
 
@@ -57,21 +61,40 @@
 
     <container class="list-main">
       <section class="list">
-          <h1 class="catagory-name">ToDo's</h1>
-        <section class="list-actual">
-          <span class="task">Task</span>
-          <span class="category">Category</span>
-          <form method="GET" action="/edit" class="edit">
-            <button class="edit-button" type="submit">
-              <i class="fa-solid fa-pen-to-square"></i>
-            </button>
-          </form>
-          <form method="POST" action="/delete" class="delete">
-            <button class="delete-button" type="submit">
-              <i class="fa-solid fa-trash"></i>
-            </button>
-          </form>
-        </section>
+        <h1 class="catagory-name">ToDo's</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Task</th>
+              <th scope="col">Category</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let activity of allTasks) { %>
+              <tr>
+                <td>
+                  <%= activity.task %>
+                </td>
+                <td>
+                  <%= activity.category %>
+                </td>
+                <td>
+                  <a href="/updatetask/<%=activity.id%>"><button class="edit-button" type="submit">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                </td>
+                <td>
+                  <form method="POST" action="/delete/<%=activity.id%>"><button class="delete-button" type="submit">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                  </form>
+                </td>
+              </tr>
+              <% } %>
+          </tbody>
+        </table>
     </container>
   </container>
 </body>

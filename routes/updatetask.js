@@ -9,7 +9,10 @@ RETURNING *;
 //`SELECT * FROM quizzes WHERE quiz_id=${request};`
 //Route "/home/updatetask"
 module.exports = (db) => {
-  router.post("/:task", (req, res) => {
+  router.get("/:id", (req, res) => {
+    res.render("edit")
+  })
+  router.post("/:id", (req, res) => {
     db.query(queryString, [req.params, req.body.update])
     .then(result => {
       return res.redirect("/")

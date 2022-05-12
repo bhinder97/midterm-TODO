@@ -8,7 +8,19 @@ WHERE email = $1;
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    res.render("login");
+    req.session.user_id = 1;
+    // db.query(`
+    // SELECT * FROM users
+    // WHERE id = $1;
+    // `, [1])
+    // .then ((result) => {
+    //   const userObject = result.rows[0]
+    //   const templateVars = {
+    //     user: userObject
+    //   }
+      // res.render('index.ejs', templateVars)
+      res.redirect("/")
+    // })
   });
   router.post("/", (req, res) => {
     const userEmail = req.body.email;
@@ -33,7 +45,8 @@ module.exports = (db) => {
       const templateVars = {
         user: userObject
       }
-      res.render('index.ejs', templateVars)
+      // res.render('index.ejs', templateVars)
+      res.redirect("/")
     });
   });
   return router;
