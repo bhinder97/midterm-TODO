@@ -96,6 +96,10 @@ app.get("/", (req, res) => {
   }
 });
 
+app.get("/edit", (req, res) => {
+  res.render("edit");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
