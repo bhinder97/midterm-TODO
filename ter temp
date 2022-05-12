@@ -1,0 +1,50 @@
+*   [33m9717243[m[33m ([m[1;36mHEAD -> [m[1;32mtemp[m[33m)[m join master
+[31m|[m[32m\[m  
+[31m|[m * [33m0a39bc0[m[33m ([m[1;31morigin/routes[m[33m, [m[1;32mroutes[m[33m)[m front page table
+[31m|[m *   [33mf9327d6[m Merge branch 'login-feature' of github.com:bhinder97/midterm-ToDo into routes
+[31m|[m [33m|[m[34m\[m  
+[31m|[m [33m|[m * [33m8d30148[m[33m ([m[1;31morigin/login-feature[m[33m, [m[1;32mlogin-feature[m[33m)[m login feature add template vars
+[31m|[m * [34m|[m [33m00990ca[m[33m ([m[1;31morigin/html/css[m[33m, [m[1;32mhtml/css[m[33m)[m register page html and css
+[31m|[m * [34m|[m [33m2fe46a5[m register page html and css
+[31m|[m * [34m|[m [33m3c76f2e[m register page html and css
+[31m|[m * [34m|[m   [33m3e4128b[m register page html and css
+[31m|[m [35m|[m[36m\[m [34m\[m  
+* [35m|[m [36m|[m [34m|[m [33mda4df5f[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmerger[m[33m, [m[1;32mmaster[m[33m)[m template vars added for ejs
+* [35m|[m [36m|[m [34m|[m [33md9d41c1[m[33m ([m[1;32mapi-feature[m[33m)[m update login with template vars
+* [35m|[m [36m|[m [34m|[m   [33m271245a[m[33m ([m[1;31morigin/first-page-html[m[33m, [m[1;31morigin/api-feature[m[33m, [m[1;32mfirst-page-html[m[33m)[m removed gitignore for ejs
+[35m|[m[1;32m\[m [35m\[m [36m\[m [34m\[m  
+[35m|[m [1;32m|[m[35m/[m [36m/[m [34m/[m  
+[35m|[m[35m/[m[1;32m|[m [36m|[m [34m|[m   
+[35m|[m * [36m|[m [34m|[m   [33mb6313c2[m commit diff
+[35m|[m [1;33m|[m[1;34m\[m [36m\[m [34m\[m  
+[35m|[m * [1;34m|[m [36m|[m [34m|[m [33m4df23ae[m code clean up
+[35m|[m * [1;34m|[m [36m|[m [34m|[m [33m9361637[m link api
+[35m|[m * [1;34m|[m [36m|[m [34m|[m [33m28d14df[m api query add
+[35m|[m * [1;34m|[m [36m|[m [34m|[m [33m4396d90[m api feature add
+[35m|[m [36m|[m [1;34m|[m[36m/[m [34m/[m  
+[35m|[m [36m|[m[36m/[m[1;34m|[m [34m|[m   
+[35m|[m * [1;34m|[m [34m|[m [33m9ba0375[m query correction
+[35m|[m * [1;34m|[m [34m|[m   [33md110969[m[33m ([m[1;32mdelete-feature[m[33m)[m Amalgamate endpoints
+[35m|[m [1;35m|[m[34m\[m [1;34m\[m [34m\[m  
+[35m|[m [1;35m|[m [34m|[m [1;34m|[m[34m/[m  
+[35m|[m [1;35m|[m [34m|[m[34m/[m[1;34m|[m   
+[35m|[m [1;35m|[m * [1;34m|[m [33m13e1702[m login and register updates
+[35m|[m [1;35m|[m * [1;34m|[m [33meabe512[m register and login updates
+[35m|[m [1;35m|[m * [1;34m|[m [33m67271a8[m login feature work
+[35m|[m * [1;36m|[m [1;34m|[m [33m89e92a8[m[33m ([m[1;31morigin/delete-feature[m[33m)[m expressjson middleware add
+[35m|[m * [1;36m|[m [1;34m|[m [33m914d285[m curl test add and verified
+[35m|[m * [1;36m|[m [1;34m|[m [33m4894815[m modify route for testing
+[35m|[m * [1;36m|[m [1;34m|[m [33me8f3e72[m[33m ([m[1;32mupdate-feature[m[33m)[m delete feature add
+[35m|[m * [1;36m|[m [1;34m|[m [33m891983e[m[33m ([m[1;31morigin/update-feature[m[33m)[m update feature add
+[35m|[m * [1;36m|[m [1;34m|[m [33m4834d8b[m[33m ([m[1;31morigin/add-feature[m[33m, [m[1;32madd-feature[m[33m)[m viewAll feature added
+[35m|[m * [1;36m|[m [1;34m|[m [33mf87a030[m add function to page
+[35m|[m [1;36m|[m[1;36m/[m [1;34m/[m  
+* [1;36m|[m [1;34m|[m [33m30b843f[m error ix
+* [1;36m|[m [1;34m|[m [33m71d518f[m more chnage to css
+* [1;36m|[m [1;34m|[m [33m7e758cb[m more chnage to main page
+* [1;36m|[m [1;34m|[m [33m1af606a[m first page html change
+[1;34m|[m [1;36m|[m[1;34m/[m  
+[1;34m|[m[1;34m/[m[1;36m|[m   
+* [1;36m|[m [33m0bae818[m first page html
+[1;36m|[m[1;36m/[m  
+* [33m1254b40[m Initial commit

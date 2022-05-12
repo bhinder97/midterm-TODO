@@ -10,9 +10,9 @@ CREATE TABLE tasks (
 
 INSERT INTO tasks (users_id , task , category)
 VALUES
-  (1, 'Task 1 test', 'Task 1 cat'),
-  (1, 'Task 2 test', 'Task 2 cat'),
-  (1, 'Task 3 test', 'Task 3 cat'),
+  (1, 'Romeo and Juliet', 'Books (To read)'),
+  (1, 'Pizza', 'Restaurants, cafes, etc. (To eat)'),
+  (1, 'Avenger', 'Film / Series (To watch)'),
   (4,'United Kingdom','film,'),
   (4,'New Zealand','music'),
   (2,'Philippines','food'),
