@@ -77,10 +77,9 @@
             <tr>
               <th scope="col">Task</th>
               <th scope="col">Category</th>
-              <th scope="col">Edit</th>
-              <th scope="col">Delete</th>
               <th score="col">Change task</th>
               <th score="col">Change category</th>
+              <th scope="col">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -93,30 +92,25 @@
                   <%= activity.category %>
                 </td>
                 <td>
-                  <a href="/updatetask/<%=activity.id%>"><button class="edit-button" type="submit">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                  </button>
-                </td>
-                <td>
-                  <form method="POST" action="/delete/<%=activity.id%>"><button class="delete-button" type="submit">
-                    <i class="fa-solid fa-trash"></i>
-                  </button>
-                  </form>
-                </td>
-                <td>
                   <form method="POST" action="/updatetask/<%=activity.id%>">
                     <label>
                       Task
                       <input class="task-input" type="input" name="newTask" />
                     </label>
                     <td>
-                    <label>
-                      Category
-                      <input class="category-input" type="input" name="newCategory" />
-                    </label>
-                    <button type="submit" class="change-button">Update</button>
+                      <label>
+                        Category
+                        <input class="category-input" type="input" name="newCategory" />
+                      </label>
+                      <button type="submit" class="change-button">Update</button>
                     </td>
                   </form>
+                  <td>
+                    <form method="POST" action="/delete/<%=activity.id%>"><button class="delete-button" type="submit">
+                      <i class="fa-solid fa-trash"></i>
+                    </button>
+                    </form>
+                  </td>
                 </td>
               </tr>
               <% } %>
