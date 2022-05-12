@@ -5,6 +5,6 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     req.session = null;
-    req.redirect('/login');
+    res.redirect('/login');
   });
 };
