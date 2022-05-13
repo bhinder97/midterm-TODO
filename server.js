@@ -51,7 +51,7 @@ const updateRoute = require("./routes/updatetask");
 const deleteroute = require("./routes/delete");
 const login = require("./routes/login");
 const register = require("./routes/register");
-const logout = require("./routes/logout");
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -63,7 +63,7 @@ app.use("/updatetask", updateRoute(db));
 app.use("/delete", deleteroute(db));
 app.use("/login", login(db));
 app.use("/register", register(db));
-app.use("/logout", logout(db));
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -100,6 +100,11 @@ app.get("/", (req, res) => {
 
 app.get("/edit", (req, res) => {
   res.render("edit");
+});
+
+app.get("/logout", (req, res) => {
+  req.session = null;
+  res.redirect("/");
 });
 
 app.listen(PORT, () => {
