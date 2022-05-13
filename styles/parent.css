@@ -1,0 +1,14 @@
+.parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 20px
+}
+
+.parent {
+  /* background: linear-gradient(90deg, #000000 0%, #1a1a1a 20%, #494949 34%, #494949 59%, #1a1a1a 74%, #000000 100%); */
+  width: 100vw;
+  background-color: #20525C;
+}
