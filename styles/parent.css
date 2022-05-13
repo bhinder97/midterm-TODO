@@ -12,3 +12,10 @@
   width: 100vw;
   background-color: #20525C;
 }
+
+.table {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
