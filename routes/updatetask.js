@@ -3,15 +3,20 @@ const router  = express.Router();
 
 let queryString = `
 UPDATE tasks
-SET $1 = $2
-RETURNING *;
+SET task = $2,
+    category = $3
+WHERE tasks.id = $1;
 `
 //`SELECT * FROM quizzes WHERE quiz_id=${request};`
 //Route "/home/updatetask"
 module.exports = (db) => {
-  router.post("/:task", (req, res) => {
-    db.query(queryString, [req.params, req.body.update])
+  router.get("/:id", (req, res) => {
+    res.render("edit")
+  })
+  router.post("/:id", (req, res) => {
+    db.query(queryString, [req.params.id, req.body.newTask, req.body.newCategory])
     .then(result => {
+      // console.log("TEST:", res.body)
       return res.redirect("/")
     })
     .catch(err => {

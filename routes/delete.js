@@ -3,13 +3,13 @@ const router  = express.Router();
 
 let queryString = `
 DELETE FROM tasks
-WHERE tasks.task = $1;
+WHERE tasks.id = $1;
 `
 
 //Route "/home/delete"
 module.exports = (db) => {
-  router.post("/", (req, res) => {
-    db.query(queryString, [req.body])
+  router.post("/:id", (req, res) => {
+    db.query(queryString, [req.params.id])
     .then(result => {
       console.log(result.rows)
       return res.status(302).redirect("/")

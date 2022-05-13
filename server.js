@@ -52,6 +52,7 @@ const deleteroute = require("./routes/delete");
 const login = require("./routes/login");
 const register = require("./routes/register");
 
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
@@ -62,6 +63,7 @@ app.use("/updatetask", updateRoute(db));
 app.use("/delete", deleteroute(db));
 app.use("/login", login(db));
 app.use("/register", register(db));
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -69,7 +71,40 @@ app.use("/register", register(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("index");
+  let queryString = `
+  SELECT tasks.*
+  FROM tasks
+  JOIN users ON users.id=users_id
+  WHERE users.id = $1;
+  `
+  const templateVars = {
+    user: null,
+    allTasks: null
+  }
+  if(req.session.user_id){
+    const firstQuery = db.query(queryString, [req.session.user_id])
+    const secondQuery = db.query(`SELECT * FROM users
+    WHERE id = $1;`, [req.session.user_id])
+    Promise.all([firstQuery, secondQuery])
+    .then((result) => {
+      // console.log("TEST!!:", result[0].rows)
+      templateVars.allTasks = result[0].rows;
+      templateVars.user = result[1].rows[0]
+      // console.log("TEST!!:", templateVars)
+      return res.render("index", templateVars);
+    })
+  } else {
+    res.render("index", templateVars);
+  }
+});
+
+app.get("/edit", (req, res) => {
+  res.render("edit");
+});
+
+app.get("/logout", (req, res) => {
+  req.session = null;
+  res.redirect("/");
 });
 
 app.listen(PORT, () => {
